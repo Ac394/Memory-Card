@@ -73,9 +73,9 @@ function App() {
 
   return (
     <>
-      <div className="relative h-screen bg-[url('../assets/img/minions_bg_light.jpg')] bg-no-repeat bg-cover">
+      <div className="relative h-screen bg-[url('/minions_bg_light.jpg')] bg-no-repeat bg-cover">
         <header className="h-36 pl-12">
-          <img src="../assets/img/minions_logo.png" className="h-full" />
+          <img src="/minions_logo.png" className="h-full" />
           <div>
             <p>{score.current}</p>
             <p>{bestScore.current}</p>
@@ -86,7 +86,7 @@ function App() {
           {minions.map((minion) => (
             <Card
               name={minion.name}
-              imgUrl={`../assets/img/minions/minion-${minion.name}.webp`}
+              imgUrl={`/minions/minion-${minion.name}.webp`}
               flip={flip}
               key={minion.name}
               handleClick={() => handleClick(minion)}

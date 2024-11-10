@@ -22,7 +22,7 @@ export default function Card({ name, imgUrl, flip, handleClick }) {
           style={{ transform: "rotateY(180deg)" }}
         >
           <div className="flex size-full rounded-lg overflow-hidden">
-            <img src={"../assets/img/minions/minions_goggle.jpg"} className="size-full object-cover" />
+            <img src={"/minions/minions_goggle.jpg"} className="size-full object-cover" />
           </div>
         </div>
       </Tilt>

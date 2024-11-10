@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .backface-visible {
+    backfacevisibility: "visible";
+  }
+
+  .backface-hidden {
+    backfacevisibility: "hidden";
+  }
+
+  .backface-inherit {
+    backfacevisibility: "inherit";
+  }
+
+  .backface-unset {
+    backfacevisibility: "unset";
+  }
+}
+
+:root {
+}

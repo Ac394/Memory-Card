@@ -24,7 +24,7 @@ function App() {
   const [flip, setFlip] = useState(false);
   const [result, setResult] = useState(null);
   let score = useRef(0);
-  let bestScore = useRef(0);
+  let highScore = useRef(0);
 
   const resetGame = () => {
     minions.map((minion) => {
@@ -34,15 +34,15 @@ function App() {
     score.current = 0;
   };
 
-  const setBestScore = () => {
-    if (score.current > bestScore.current) bestScore.current = score.current;
+  const setHighScore = () => {
+    if (score.current > highScore.current) highScore.current = score.current;
   };
 
   const playGame = (minion) => {
     // Loss condition
     if (minion.clicked === true) {
       setResult("lose");
-      setBestScore();
+      setHighScore();
       return;
     }
 
@@ -53,7 +53,7 @@ function App() {
     // Win condition
     if (minions.every((minion) => minion.clicked === true)) {
       setResult("win");
-      setBestScore();
+      setHighScore();
     }
   };
 
@@ -73,16 +73,20 @@ function App() {
 
   return (
     <>
-      <div className="relative h-screen bg-[url('/minions_bg_light.jpg')] bg-no-repeat bg-cover">
-        <header className="h-36 pl-12">
-          <img src="/minions_logo.png" className="h-full" />
-          <div>
-            <p>{score.current}</p>
-            <p>{bestScore.current}</p>
+      <div className="min-h-screen flex flex-col bg-[url('/minions_bg_light.jpg')] bg-no-repeat bg-cover">
+        <header className="h-36 px-12 flex justify-between items-center">
+          <img src="/minions_logo.png" className="h-full drop-shadow-xl" />
+          <div className="text-2xl text-white font-semibold bg-blue-light-minion/50 px-5 py-2.5 rounded-xl backdrop-blur-sm shadow-lg">
+            <p>
+              Score: <span className="font-extrabold">{score.current}/6</span>
+            </p>
+            <p>
+              High score: <span className="font-extrabold">{highScore.current}</span>
+            </p>
           </div>
         </header>
 
-        <div className="max-w-screen-xl w-fit mx-auto grid grid-cols-3 gap-10">
+        <div className="px-6 mx-auto my-auto flex items-center justify-center flex-wrap content-center gap-10">
           {minions.map((minion) => (
             <Card
               name={minion.name}

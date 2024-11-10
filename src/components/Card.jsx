@@ -4,7 +4,7 @@ export default function Card({ name, imgUrl, flip, handleClick }) {
   return (
     <div className="cursor-pointer" onClick={handleClick}>
       <Tilt
-        className="flip-card w-56 h-80 transform-style-3d will-change-transform duration-[1500ms] ease-[cubic-bezier(0.03,0.98,0.52,0.99)]"
+        className="flip-card w-40 2xl:w-56 transform-style-3d will-change-transform duration-[1500ms] ease-[cubic-bezier(0.03,0.98,0.52,0.99)]"
         glareEnable={true}
         glareBorderRadius="16px"
         flipHorizontally={flip}
